@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        @font-face {
+            font-family: 'Aeonik';
+            src: url({{fontBoldStyle}}) format('woff2');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Aeonik';
+            src: url({{fontRegularStyle}}) format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            width: 1299px;
+            height: 833px;
+            padding: 2rem;
+            font-family: Aeonik, sans-serif;
+            font-size: 20px;
+            background-image: url("https://merarozgaarapp-assets.s3.ap-south-1.amazonaws.com/Image.png");
+            background-size: cover;
+        }
+
+        .border {
+            border: 10px double #800000 !important;
+        }
+
+        h1 {
+            font-weight: bold !important;
+            color: #800000;
+        }
+
+        small {
+            font-size: 14px;
+        }
+
+        .fw-bold {
+            font-weight: bold !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="d-flex align-items-center h-100 py-5 border">
+    <div class="container text-center">
+        <div class="row">
+            <div class="position-relative col-2 offset-5">
+                <img class="w-100 mb-5" src="https://merarozgaarapp-assets.s3.ap-south-1.amazonaws.com/icon.png" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <h1 class="display-3 mb-5">Certificate of Appreciation</h1>
+                <p class="mb-0">This acknowledges that</p>
+                <h1 class="my-4">{{name}}</h1>
+                <p>has successfully completed the <span class="fw-bold">Interview Preparation Video Series</span>, an online course authorized by <span class="fw-bold">Mera Rozgaar</span> and offered by <span class="fw-bold">Mera Rozgaar</span>.</p>
+            </div>
+            <div class="col-6">
+                <p class="mt-5"><span class="fw-bold">Date:</span> {{date}}</p>
+            </div>
+            <div class="col-6">
+                <p class="mt-5"><span class="fw-bold">Certificate Number:</span> {{id}}</p>
+            </div>
+            <div class="col-12 mt-5">
+                <small>Verify this certificate at https://merarozgaar.app/verify/{{id}}</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
