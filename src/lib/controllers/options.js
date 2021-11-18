@@ -3,9 +3,13 @@ const { orderBy } = require('lodash');
 module.exports = function (deps) {
   const { db } = deps;
 
-  function getTypes(type, lang = 'ENGLISH', order_by = 'label') {
+  function getTypes(type, lang, order_by = 'label') {
+    if(lang == undefined)
+    {
+      lang = 'ENGLISH';
+    }
     console.log(type, lang);
-
+    
     return new Promise((resolve, reject) => {
       (async () => {
         try {
@@ -13,7 +17,7 @@ module.exports = function (deps) {
             'SELECT * FROM types WHERE type = ? AND language = ?',
             [type, lang],
           );
-
+          console.log(rows);
           resolve(
             orderBy(
               rows.map(({ id: value, label, language }) => ({
@@ -80,8 +84,8 @@ module.exports = function (deps) {
     },
     async getProfessions(req, res) {
       try {
+        
         const results = await getTypes('PROFESSION', 'BOTH');
-
         res.status(200).json(results);
       } catch (e) {
         res.status(500).end();
